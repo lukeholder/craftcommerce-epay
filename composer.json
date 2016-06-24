@@ -2,7 +2,13 @@
   "config": {
         "vendor-dir": "epay/vendor"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/lukeholder/omnipay-epay"
+        }
+    ],
     "require": {
-    "lsv/omnipay-epay": "^1.0"
+      "lsv/omnipay-epay": "dev-craftcommerce"
   }
 }

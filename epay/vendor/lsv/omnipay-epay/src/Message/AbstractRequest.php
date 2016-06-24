@@ -65,11 +65,14 @@ abstract class AbstractRequest extends AbstractBaseRequest
      */
     public function setHash(ParameterBag &$parameters)
     {
-        if ($parameters->has('secret')) {
+        // Only set hash if secret is set.
+        if ($parameters->has('secret') && $this->parameters->get('secret')) {
             $secret = $this->parameters->get('secret');
             $this->parameters->remove('secret');
 
-            $hash = md5(implode('', array_values($this->parameters->all())) . $secret);
+            $data = array_values($this->parameters->all());
+
+            $hash = md5(implode('', $data) . $secret);
             $this->parameters->set('hash', $hash);
         }
     }

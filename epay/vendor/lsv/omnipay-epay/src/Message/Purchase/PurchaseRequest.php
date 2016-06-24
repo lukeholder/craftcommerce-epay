@@ -42,7 +42,14 @@ class PurchaseRequest extends AbstractRequest
 
         $this->validate('merchantnumber', 'currency', 'accepturl', 'amount');
         $this->setHash($this->parameters);
-        return $this->parameters->all();
+
+        // Gather the data to send
+        $data = $this->parameters->all();
+
+        // Needs amount as integer, so convert from float.
+        $data['amount'] = $this->getAmountInteger();
+
+        return $data;
     }
 
     /**

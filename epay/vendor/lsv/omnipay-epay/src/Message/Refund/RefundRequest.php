@@ -53,6 +53,9 @@ class RefundRequest extends CaptureRequest
                 $data[$key] = $value;
             }
         }
+        
+        // Needs amount as integer, so convert from float.
+        $data['amount'] = $this->getAmountInteger();
 
         /** Hack from SOAP description */
         $data['pbsResponse'] = -1;
