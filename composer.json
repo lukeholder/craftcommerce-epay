@@ -1,0 +1,8 @@
+{
+  "config": {
+        "vendor-dir": "epay/vendor"
+    },
+    "require": {
+    "lsv/omnipay-epay": "^1.0"
+  }
+}
